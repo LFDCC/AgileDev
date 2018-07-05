@@ -1,0 +1,39 @@
+﻿
+@{
+    Layout = null;
+}
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="~/Content/login.css" rel="stylesheet" />
+    <title></title>
+</head>
+
+<body>
+    <div style="height: 100px;"></div>
+    <form action="" method="post" class="layui-form layui-form-pane">
+        <div class="login_box">
+            <h1>
+                <img src="~/Images/logo2.png" />
+            </h1>
+            <ul class="loginul">
+                <li><i>用户名</i><input type="text" class="text" name="username" lay-verify="username" autocomplete="off" placeholder="请输入用户名"></li>
+                <li>
+                    <i>密码</i><input type="password" class="text" name="password" lay-verify="password" placeholder="请输入密码"
+                                    autocomplete="off">
+                </li>
+
+                <li>
+                    <input name="" type="button" class="login_renbtn" value="登 录"  lay-submit="" id="btnSub" lay-filter="btnSub">
+                </li>
+            </ul>
+        </div>
+    </form>
+    <script src="~/Resource/layui/layui.js"></script>
+    <script src="~/Resource/page/login.js"></script>
+</body>
+
+</html>
+

@@ -1,0 +1,38 @@
+@charset "utf-8";
+html,body{margin:0;border:0;padding:0;width:100%;_height:100%;font-size:14px;font-family: Arial,"微软雅黑","宋体"; background:url(../images/login.jpg) no-repeat top center;   color:#333333;word-break: break-all; line-height: 22px;}
+img {border:0px; }
+*{ padding:0; margin:0}
+ul,li,dl,dd,dt,span{ margin:0; padding:0;}
+li { list-style:none;}
+a {text-decoration:none;color:#d31f2a;outline:none;blr:expression(this.onFocus=this.blur()); } 
+a:hover { text-decoration:none; color:#d31f2a}
+.clear { clear:both; font-size:0; height:0; line-height:0;}
+.mt15 { margin-top:15px;}
+.mb5{ margin-bottom:5px}
+.ml20{ margin-left:20px;}
+.ml10{ margin-left:10px;}
+.mt20{ margin-top:20px}
+.mt8{ margin-top:8px}
+.mt30{ margin-top:30px}
+.plr15{ padding-left: 15px; padding-right: 15px;}
+.p10{ padding:10px}
+.p15{ padding:15px}
+.ptb5{ padding-top:5px; padding-bottom:5px}
+.fl{ float:left}
+.fr{ float:right}
+.wd90{ width:90%}
+input{ vertical-align:middle}
+.select{ height:30px; border:1px #ccc solid; max-width:300px;  padding:3px 3px; min-width:100px; vertical-align:middle}
+.text{ height:38px; line-height:38px; border:1px #ccc solid; text-indent: 0.5em;width:100%}
+.gray-button { background:#eee; border:1px #ccc solid; height:30px;padding:0 10px;  color:#333; font-size:14px; cursor:pointer;}
+.act_renbtn{ background: #d43d3d; height: 36px; width: 120px; border: 0; font-size: 16px; color: #fff; margin-top: 5px;}
+.act_greenbtn{ background: #32b7af; height: 36px; width: 120px; border: 0; font-size: 16px; color: #fff; margin-top: 5px;}
+
+.login_box{ background:#fff; width:320px; padding:40px 60px 80px 60px; margin:60px auto 0 auto}
+h1{ font-size:24px; text-align:center; font-weight:normal}
+.loginul{ margin-top:30px}
+.loginul li{ margin-top:20px}
+.loginul li i{ display:block; font-style:normal; font-size:16px; margin-bottom:5px}
+.loginul li span{ display:block;}
+.loginul li span img{ vertical-align:middle; margin-right:5px; padding:5px 0}
+.login_renbtn{ background: #4db470; height: 45px; line-height:43px; width: 100%; border: 0; font-size: 16px; color: #fff;border-radius:5px; }
