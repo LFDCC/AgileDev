@@ -1,0 +1,90 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AgileDev.Interface", "AgileDev.Interface", "{82816AF9-A844-4D78-B322-2DFF1A82C78D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgileDev.Web", "AgileDev.Web\AgileDev.Web.csproj", "{3FC1D94A-B347-4C29-95D3-7681674856E3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgileDev.Tools", "AgileDev.Tools\AgileDev.Tools.csproj", "{74C1C523-F14B-4E80-ACFE-9F9992C74414}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgileDev.Model", "AgileDev.Model\AgileDev.Model.csproj", "{44760197-9398-41E6-836B-EA219F53FF84}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgileDev.BLL", "AgileDev.BLL\AgileDev.BLL.csproj", "{47ED1872-8A1D-4E83-8CAE-732DC8F604BE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgileDev.DAL", "AgileDev.DAL\AgileDev.DAL.csproj", "{F5ACD1E4-B7D3-4CC2-BF58-5842911A54DB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgileDev.Common", "AgileDev.Common\AgileDev.Common.csproj", "{B7E3D6B9-8527-41F2-87C6-9D9C4337E4CA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgileDev.IBLL", "AgileDev.IBLL\AgileDev.IBLL.csproj", "{480CBA3D-EC73-441C-8286-5412A8C2C156}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgileDev.IDAL", "AgileDev.IDAL\AgileDev.IDAL.csproj", "{FA921067-653E-4B13-BF47-9AE49B50320A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgileDev.ICommon", "AgileDev.ICommon\AgileDev.ICommon.csproj", "{D59FE450-6DED-4BAF-B057-733C58AC1F1A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgileDev.IDataBase", "AgileDev.IDataBase\AgileDev.IDataBase.csproj", "{3DD7FF9F-B6AD-43DF-AFB8-74D5634CEEAB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgileDev.DataBase", "AgileDev.DataBase\AgileDev.DataBase.csproj", "{1E76804E-AC48-4E67-8296-9E451ACCA179}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3FC1D94A-B347-4C29-95D3-7681674856E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3FC1D94A-B347-4C29-95D3-7681674856E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3FC1D94A-B347-4C29-95D3-7681674856E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3FC1D94A-B347-4C29-95D3-7681674856E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74C1C523-F14B-4E80-ACFE-9F9992C74414}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74C1C523-F14B-4E80-ACFE-9F9992C74414}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74C1C523-F14B-4E80-ACFE-9F9992C74414}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74C1C523-F14B-4E80-ACFE-9F9992C74414}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44760197-9398-41E6-836B-EA219F53FF84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44760197-9398-41E6-836B-EA219F53FF84}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44760197-9398-41E6-836B-EA219F53FF84}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44760197-9398-41E6-836B-EA219F53FF84}.Release|Any CPU.Build.0 = Release|Any CPU
+		{47ED1872-8A1D-4E83-8CAE-732DC8F604BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47ED1872-8A1D-4E83-8CAE-732DC8F604BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47ED1872-8A1D-4E83-8CAE-732DC8F604BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47ED1872-8A1D-4E83-8CAE-732DC8F604BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5ACD1E4-B7D3-4CC2-BF58-5842911A54DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5ACD1E4-B7D3-4CC2-BF58-5842911A54DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5ACD1E4-B7D3-4CC2-BF58-5842911A54DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5ACD1E4-B7D3-4CC2-BF58-5842911A54DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7E3D6B9-8527-41F2-87C6-9D9C4337E4CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7E3D6B9-8527-41F2-87C6-9D9C4337E4CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7E3D6B9-8527-41F2-87C6-9D9C4337E4CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7E3D6B9-8527-41F2-87C6-9D9C4337E4CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{480CBA3D-EC73-441C-8286-5412A8C2C156}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{480CBA3D-EC73-441C-8286-5412A8C2C156}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{480CBA3D-EC73-441C-8286-5412A8C2C156}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{480CBA3D-EC73-441C-8286-5412A8C2C156}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA921067-653E-4B13-BF47-9AE49B50320A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA921067-653E-4B13-BF47-9AE49B50320A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA921067-653E-4B13-BF47-9AE49B50320A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA921067-653E-4B13-BF47-9AE49B50320A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D59FE450-6DED-4BAF-B057-733C58AC1F1A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D59FE450-6DED-4BAF-B057-733C58AC1F1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D59FE450-6DED-4BAF-B057-733C58AC1F1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D59FE450-6DED-4BAF-B057-733C58AC1F1A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3DD7FF9F-B6AD-43DF-AFB8-74D5634CEEAB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3DD7FF9F-B6AD-43DF-AFB8-74D5634CEEAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3DD7FF9F-B6AD-43DF-AFB8-74D5634CEEAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3DD7FF9F-B6AD-43DF-AFB8-74D5634CEEAB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E76804E-AC48-4E67-8296-9E451ACCA179}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E76804E-AC48-4E67-8296-9E451ACCA179}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E76804E-AC48-4E67-8296-9E451ACCA179}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E76804E-AC48-4E67-8296-9E451ACCA179}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{480CBA3D-EC73-441C-8286-5412A8C2C156} = {82816AF9-A844-4D78-B322-2DFF1A82C78D}
+		{FA921067-653E-4B13-BF47-9AE49B50320A} = {82816AF9-A844-4D78-B322-2DFF1A82C78D}
+		{D59FE450-6DED-4BAF-B057-733C58AC1F1A} = {82816AF9-A844-4D78-B322-2DFF1A82C78D}
+		{3DD7FF9F-B6AD-43DF-AFB8-74D5634CEEAB} = {82816AF9-A844-4D78-B322-2DFF1A82C78D}
+	EndGlobalSection
+EndGlobal

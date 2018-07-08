@@ -1,0 +1,54 @@
+﻿@using AgileDev.Web.Models
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - 中国职工保险互助会徐州办事处</title>
+    <link href="~/Content/Admin.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="topfix">
+
+        <div class="wrapper">
+            <div class="logo">
+                <img src="~/Images/logo.png" />
+            </div>
+            <div class="nav">
+                <ul>
+                    <li>
+                        <a href="/Claim/Index" class=@(ViewContext.RouteData.Values["controller"].ToString() == "Claim" ? "hover" : "")>理赔金到账名单</a>
+                    </li>
+                    <li>
+                        <a href="/BackBill/Index" class=@(ViewContext.RouteData.Values["controller"].ToString() == "BackBill" ? "hover" : "")>保单退回名单</a>
+                    </li>
+                    <li>
+                        <a href="/Admin/Index" class=@(ViewContext.RouteData.Values["controller"].ToString() == "Admin" ? "hover" : "")>管理员设置</a>
+                    </li>
+                    <li>
+                        <a href="/Pwd/Index" class=@(ViewContext.RouteData.Values["controller"].ToString() == "Pwd" ? "hover" : "")>修改密码</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="welcome">
+                <span>您好，@(CurUser.User.RealName ?? CurUser.User.UserName)</span>
+                <a href="/Account/LogOut" class="ml10">退出</a>
+
+            </div>
+            <div class="clear">
+            </div>
+        </div>
+    </div>
+    <div class="wrapper pt100">
+        <div class="common minh">
+            <div class="wz">
+                当前位置：
+                @Html.Raw(ViewBag.Position)
+            </div>
+            @RenderBody()
+        </div>
+    </div>
+    @RenderSection("scripts", required: false)
+</body>
+</html>
