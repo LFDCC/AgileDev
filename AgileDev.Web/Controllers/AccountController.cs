@@ -13,9 +13,11 @@ namespace AgileDev.Web.Controllers
     public class AccountController : Controller
     {
         IBaseBLL _baseBLL;
+        TestOne _one;
 
-        public AccountController(IBaseBLL baseBLL)
+        public AccountController(IBaseBLL baseBLL,TestOne one)
         {
+            _one = one;
             _baseBLL = baseBLL;
         }
 

@@ -197,6 +197,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\CurUser.cs" />
+    <Compile Include="Models\Test.cs" />
+    <Compile Include="Models\TestOne.cs" />
+    <Compile Include="Models\TestTwo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -386,10 +389,6 @@
     <ProjectReference Include="..\AgileDev.IBLL\AgileDev.IBLL.csproj">
       <Project>{480cba3d-ec73-441c-8286-5412a8c2c156}</Project>
       <Name>AgileDev.IBLL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\AgileDev.IDAL\AgileDev.IDAL.csproj">
-      <Project>{fa921067-653e-4b13-bf47-9ae49b50320a}</Project>
-      <Name>AgileDev.IDAL</Name>
     </ProjectReference>
     <ProjectReference Include="..\AgileDev.Model\AgileDev.Model.csproj">
       <Project>{44760197-9398-41e6-836b-ea219f53ff84}</Project>

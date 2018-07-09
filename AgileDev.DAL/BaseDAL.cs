@@ -11,11 +11,11 @@ namespace AgileDev.DAL
 {
     public class BaseDAL : IBaseDAL
     {
-        private AgileDevContext _dbContext = new AgileDevContext();
+        private AgileDevContext _dbContext;
 
-        public BaseDAL()
+        public BaseDAL(AgileDevContext dbContext)
         {
-
+            _dbContext = dbContext;
         }
         /// <summary>
         /// 增加
