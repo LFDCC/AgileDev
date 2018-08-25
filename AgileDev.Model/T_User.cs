@@ -1,4 +1,4 @@
-namespace AgileDev.Model
+namespace AgileDev.Entity
 {
     using System;
     using System.Collections.Generic;

@@ -1,10 +1,8 @@
-﻿using AgileDev.Common;
-using AgileDev.Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using AgileDev.Entity;
+using AgileDev.Utiliy;
+using Microsoft.AspNet.Identity;
+using System.Security.Claims;
 using System.Web;
-using System.Web.Security;
 
 namespace AgileDev.Web.Models
 {
@@ -14,16 +12,11 @@ namespace AgileDev.Web.Models
         {
             get
             {
-                if (HttpContext.Current.User.Identity.IsAuthenticated)
-                {
-                    HttpCookie authCookie = HttpContext.Current.Request.Cookies[FormsAuthentication.FormsCookieName];//获取cookie 
-                    FormsAuthenticationTicket Ticket = FormsAuthentication.Decrypt(authCookie.Value);//解密 
-                    return Ticket.UserData.ToObject<T_User>();
-                }
-                else
-                {
-                    return null;
-                }
+                ClaimsIdentity identity = HttpContext.Current.User.Identity as ClaimsIdentity;
+                T_User user = identity.Name.ToObject<T_User>();
+                var role=identity.FindFirstValue(ClaimTypes.Role);
+                var uid = identity.GetUserId();
+                return user;
             }
         }
     }

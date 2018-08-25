@@ -1,109 +1,148 @@
-﻿using AgileDev.Common;
-using AgileDev.IBLL;
-using AgileDev.Model;
-using AgileDev.Utils.Encrypt;
-using AgileDev.Web.Models;
+﻿using AgileDev.App;
+using AgileDev.Common;
+using AgileDev.Entity;
+using AgileDev.Interface.IApp;
+using AgileDev.Interface.IServices;
+using AgileDev.Utiliy;
+using AgileDev.Utiliy.Encrypt;
+using Microsoft.AspNet.Identity;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Security.Claims;
+using System.Web;
 using System.Web.Mvc;
 
 namespace AgileDev.Web.Controllers
 {
     public class AccountController : Controller
     {
-        IBaseBLL _baseBLL;
-        TestOne _one;
+        IRecordServices _recordServices;
+        IUserServices _userServices;
 
-        public AccountController(IBaseBLL baseBLL,TestOne one)
+        public AccountController(IUserServices userServices, IRecordServices recordServices)
         {
-            _one = one;
-            _baseBLL = baseBLL;
+            _userServices = userServices;
+            _recordServices = recordServices;
         }
 
         [AllowAnonymous]
         public ActionResult Login(string ReturnUrl)
         {
-            //using (TransactionScope scope = new TransactionScope())
-            //{
-            //    T_User user = new T_User
-            //    {
-            //        CreateTime = DateTime.Now,
-            //        Password = MD5.Encrypt("000000").ToUpper(),
-            //        RealName = "张三",
-            //        UserName = "zhangsan"
-            //    };
-            //    _baseBLL.Add(user);
+#if true
+            //如果使用多个对象可以使用IUnitOfWork进行事务提交，同一对象下的Save本身就是事务的
+#if false
+            T_User user0 = new T_User
+                {
+                    CreateTime = DateTime.Now,
+                    Password = MD5.Encrypt("000000").ToUpper(),
+                    RealName = "张三",
+                    UserName = "zhangsan"
+                };
 
-            //    _baseBLL.Save();
+                _userServices.Add(user0);
 
-            //    _baseBLL.Add(new T_User
-            //    {
-            //        CreateTime = DateTime.Now,
-            //        Password = MD5.Encrypt("000000").ToUpper()
-            //    });
+                T_User user1 = new T_User
+                {
+                    CreateTime = DateTime.Now,
+                    Password = MD5.Encrypt("000000").ToUpper(),
+                    RealName = "张三00",
+                    UserName = "张三00"
+                };
+                _userServices.Add(user1);
 
-            //    _baseBLL.Save();
+                _userServices.Save();
+            }
+#endif
+            {
+                using (IUnitOfWork unitOfWork = IocConfig.Resolve<IUnitOfWork>())
+                {
 
-            //    scope.Complete();
-            //}
+                    T_User user0 = new T_User
+                    {
+                        CreateTime = DateTime.Now,
+                        Password = MD5.Encrypt("000000").ToUpper(),
+                        RealName = "张三",
+                        UserName = "zhangsan"
+                    };
 
-            //var user = _baseBLL.SingleOrDefault<T_User>(u => u.UserId == 1);
+                    _userServices.Add(user0);
+                    _userServices.Save();
+
+                    T_Record record = new T_Record
+
+                    {
+                        Remark = "test",
+                        UserId = 11,
+                        Title = "asdfdsf"
+                    };
+                    _recordServices.Add(record);
+                    _recordServices.Save();
+                    throw new Exception("error");
+
+                    //提交
+                    unitOfWork.Commit();
+                }
+            }
+#endif
+            //var user = _userServices.SingleOrDefault(u => u.UserId == 1);
             //user.RealName = "炒鸡管理员1";
 
-            //_baseBLL.Save();
+            //_userServices.Save();
 
-            //_baseBLL.Update<T_User>(u0 => u0.UserId == 1, u1 => new T_User { RealName = "炒鸡管理员1" });
+            //_userServices.Update(u0 => u0.UserId == 1, u1 => new T_User { RealName = "炒鸡管理员1" });
 
             Expression<Func<T_User, bool>> where = u => true;
             where = where.And(u => u.UserId == 1);
             where = where.And(u => u.RealName == "炒鸡管理员1");
             where = where.Or(u => u.RealName == "炒鸡管理员1");
 
-            var user = _baseBLL.List(where).ToList();
+            var user = _userServices.List(where).ToList();
 
             ViewBag.returnUrl = ReturnUrl;
-            if (CurUser.User != null)
-            {
-                return RedirectToAction("Index", "Claim");
-            }
             return View();
         }
 
         [HttpPost]
-        [AllowAnonymous]
-        public ActionResult Login(string username, string password)
+        public ActionResult Login(string username, string password, string returnUrl)
         {
             if (!Request.IsAjaxRequest())
             {
                 return View();
             }
             password = MD5.Encrypt(password).ToUpper();
-            T_User user = _baseBLL.SingleOrDefault<T_User>(t => t.UserName.Equals(username));
+            T_User user = _userServices.SingleOrDefault(t => t.UserName.Equals(username));
             if (user == null)
             {
                 return Json(new { status = HttpResult.fail, message = "用户名不存在！" });
             }
             else
             {
-                user = _baseBLL.SingleOrDefault<T_User>(t => t.UserName.Equals(username) && t.Password.Equals(password));
+                user = _userServices.SingleOrDefault(t => t.UserName.Equals(username) && t.Password.Equals(password));
                 if (user == null)
                 {
                     return Json(new { status = HttpResult.fail, message = "密码错误！" });
                 }
                 else
                 {
-                    FormsAuth.SignIn(user.UserId.ToString(), user);
-                    return Json(new { status = HttpResult.success, jumpUrl = ViewBag.returnUrl ?? "/Claim/Index" });
+                    var identity = new ClaimsIdentity(new List<Claim> {
+                        new Claim(ClaimTypes.Name, user.ToJson()),
+                        new Claim(ClaimTypes.NameIdentifier,user.UserId.ToString()),
+                         new Claim(ClaimTypes.Role, "admin")
+                    }, DefaultAuthenticationTypes.ApplicationCookie);
+
+                    HttpContext.GetOwinContext().Authentication.SignIn(identity);
+
+                    return Json(new { status = HttpResult.success, jumpUrl = returnUrl ?? "/Claim/Index" });
                 }
 
             }
         }
 
-        [AllowAnonymous]
         public ActionResult LogOut()
         {
-            FormsAuth.SignOut();
+            HttpContext.GetOwinContext().Authentication.SignOut();
             return RedirectToAction("Login");
         }
     }
