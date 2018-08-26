@@ -47,7 +47,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AgileDev.Model\AgileDev.Entity.csproj">
+    <ProjectReference Include="..\AgileDev.Entity\AgileDev.Entity.csproj">
       <Project>{44760197-9398-41e6-836b-ea219f53ff84}</Project>
       <Name>AgileDev.Entity</Name>
     </ProjectReference>

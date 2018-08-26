@@ -55,13 +55,13 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AgileDev.Entity\AgileDev.Entity.csproj">
+      <Project>{44760197-9398-41e6-836b-ea219f53ff84}</Project>
+      <Name>AgileDev.Entity</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AgileDev.Interface\AgileDev.Interface.csproj">
       <Project>{6D2A94AE-A4BD-4DD9-A44C-F7E710B86CE4}</Project>
       <Name>AgileDev.Interface</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\AgileDev.Model\AgileDev.Entity.csproj">
-      <Project>{44760197-9398-41e6-836b-ea219f53ff84}</Project>
-      <Name>AgileDev.Entity</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

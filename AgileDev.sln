@@ -5,8 +5,6 @@ VisualStudioVersion = 15.0.27703.2026
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgileDev.Web", "AgileDev.Web\AgileDev.Web.csproj", "{3FC1D94A-B347-4C29-95D3-7681674856E3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgileDev.Entity", "AgileDev.Model\AgileDev.Entity.csproj", "{44760197-9398-41E6-836B-EA219F53FF84}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgileDev.Services", "AgileDev.Services\AgileDev.Services.csproj", "{89D785ED-FE4A-49D8-951D-70F1FE25EF38}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgileDev.EntityFramework", "AgileDev.EntityFramework\AgileDev.EntityFramework.csproj", "{C04648D5-3DC6-4277-9BE9-97CA619A674E}"
@@ -19,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgileDev.Utility", "AgileDe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgileDev.Api", "AgileDev.Api\AgileDev.Api.csproj", "{FC25F9FB-5DE4-45CF-AD3A-A0CA2D58BDAB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgileDev.Entity", "AgileDev.Entity\AgileDev.Entity.csproj", "{44760197-9398-41E6-836B-EA219F53FF84}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,10 +29,6 @@ Global
 		{3FC1D94A-B347-4C29-95D3-7681674856E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3FC1D94A-B347-4C29-95D3-7681674856E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3FC1D94A-B347-4C29-95D3-7681674856E3}.Release|Any CPU.Build.0 = Release|Any CPU
-		{44760197-9398-41E6-836B-EA219F53FF84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{44760197-9398-41E6-836B-EA219F53FF84}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{44760197-9398-41E6-836B-EA219F53FF84}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{44760197-9398-41E6-836B-EA219F53FF84}.Release|Any CPU.Build.0 = Release|Any CPU
 		{89D785ED-FE4A-49D8-951D-70F1FE25EF38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{89D785ED-FE4A-49D8-951D-70F1FE25EF38}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{89D785ED-FE4A-49D8-951D-70F1FE25EF38}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -57,6 +53,10 @@ Global
 		{FC25F9FB-5DE4-45CF-AD3A-A0CA2D58BDAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FC25F9FB-5DE4-45CF-AD3A-A0CA2D58BDAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FC25F9FB-5DE4-45CF-AD3A-A0CA2D58BDAB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44760197-9398-41E6-836B-EA219F53FF84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44760197-9398-41E6-836B-EA219F53FF84}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44760197-9398-41E6-836B-EA219F53FF84}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44760197-9398-41E6-836B-EA219F53FF84}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
