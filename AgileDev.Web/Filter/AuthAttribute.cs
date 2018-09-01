@@ -1,10 +1,7 @@
-﻿using AgileDev.App;
-using AgileDev.Common;
-using AgileDev.Web.Models;
+﻿using AgileDev.Web.Models;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
-
 
 namespace AgileDev.Web.Filter
 {
@@ -23,7 +20,7 @@ namespace AgileDev.Web.Filter
                 {
                     if (filterContext.HttpContext.Request.IsAjaxRequest())
                     {//ajax超时处理
-                        filterContext.Result = new JsonResult() { Data = new { status = HttpResult.timeout, message = "登录超时！", redirect= FormsAuthentication.LoginUrl }, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+                        filterContext.Result = new JsonResult() { Data = new { status = HttpResult.timeout, message = "登录超时！", redirect = FormsAuthentication.LoginUrl }, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
                     }
                     else
                     {

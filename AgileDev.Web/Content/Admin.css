@@ -6,7 +6,7 @@ img {border:0px; }
 *{ padding:0; margin:0}
 ul,li,dl,dd,dt,span{ margin:0; padding:0;}
 li { list-style:none;}
-a {text-decoration:none;color:#258a45; } 
+a {text-decoration:none;color:#258a45; }
 a{outline: none; blr:expression(this.onFocus=this.blur());}
 a:hover { text-decoration:none; color:#0f662b}
 .clear { clear:both; font-size:0; height:0; line-height:0;}
@@ -47,11 +47,9 @@ a.green-butny { white-space: nowrap;-o-text-overflow:ellipsis;text-overflow: ell
 a.green-butny2 { white-space: nowrap;-o-text-overflow:ellipsis;text-overflow: ellipsis;overflow:hidden; background:#e9f9d7; height:32px;padding:0 8px;  border:1px #cae6ab solid; color:#333; -webkit-border-radius:3px;border-radius:3px;-moz-border-radius:3px; cursor:pointer; margin:0 2px; line-height:32px; display:inline-block; width:22.5%; text-align:center}
 a.yel-butn { background:#e58d06; height:35px;padding:0 5px; border:0; color:#fff; -webkit-border-radius:3px;border-radius:3px;-moz-border-radius:3px; cursor:pointer; margin:0 2px; line-height:35px; display:inline-block;}
 
-
 .minh{ min-height:630px}
 .wrapper{  margin:0 auto; padding:0 10px; width:1200px;}
 .minh:after{display:block;content:'';clear:both;visibility:hidden;}
- 
 
 /*top*/
 .logo { float:left; width:250px; font-size:20px;font-family:"微软雅黑"; color:#333; padding:0px 0}
@@ -73,7 +71,7 @@ a.yel-butn { background:#e58d06; height:35px;padding:0 5px; border:0; color:#fff
 .commontab2 { background:#f5f5f5; border-bottom:1px #dedede solid; line-height:40px; padding-right:5PX;font-size:16px; margin-bottom:5px}
 .commontab2 a{ padding:0 10px; margin-left:25px;  height:40px; display:inline-block; color:#666; font-size:15px; }
 .commontab2 a.hover{background:url(../images/blue.png) no-repeat bottom; line-height:35px; height:43px;  text-align:center; position:relative; margin-bottom:-6px; color:#026ec5}
- 
+
 .commontab3 {  border-bottom:2px #62abbe solid; line-height:40px; padding-right:5PX;  margin-bottom:10px; margin-top:10px }
 .commontab3 a{ padding:0 20px; margin-left:5px;  height:40px; display:inline-block; color:#666; font-size:16px;}
 .commontab3 a.hover{background: #dfeef3; line-height:40px; height:45px;  text-align:center; position:relative; margin-bottom:-2px; z-index:9; color:#026ec5; border:2px #62abbe solid; border-bottom:0}
@@ -226,8 +224,7 @@ h1{ font-size:16px}
 
 .dis{display:block;}
 .undis{display:none;}
- 
- 
+
  /*nolist*/
 .nolist { text-align:center; font-size:14px; line-height:150px; font-weight:bold; color:#666}
 .novideo { text-align:center; font-size:14px; line-height:420px; font-weight:bold; color:White}
@@ -274,8 +271,6 @@ a.delete:hover{background:url(../images/icon.png) no-repeat -112px -38px;}
 .paginator a:visited {padding: 1px 6px; border: solid 1px #eeeeee; background: #fff; text-decoration: none; color:#006699;}
 .paginator a:hover {color: #000000; background: #ffffff;border-color:#666666;text-decoration: none;}
 
-
-
 .main{width:1100px; margin:85px auto 20px auto; background:#dfeef3; padding:5px 0}
 .mainbai{ margin:15px 10px 10px 10px; border-bottom:1px #eee solid; padding-bottom:10px; background:#fff; padding:8px}
 
@@ -319,9 +314,8 @@ a.delete:hover{background:url(../images/icon.png) no-repeat -112px -38px;}
 .classk dd span.anniu{ display:none}
 .classk dd:hover span.anniu{ display:block}
 
-
 /*下拉菜单*/
- 
+
 /*下拉菜单*/
 .single-select2{ position:relative; display:inline-block; margin-right:5px; vertical-align:middle; cursor:pointer; *float:left; }
 .single-select2 .boxwrap{ display:inline-block; vertical-align:middle; }
@@ -348,9 +342,6 @@ a.delete:hover{background:url(../images/icon.png) no-repeat -112px -38px;}
 .single-select .arrow{ display:none; position:absolute; left:15px; top:35px; width:21px; height:11px; text-indent:-9999px; background:url("../Images/skin_icons2.png") 0 -290px no-repeat; }
 .single-select.up .select-items{ top:auto; bottom:45px; }
 .single-select.up .arrow{ top:-13px; background:url("../Images/skin_icons2.png") 0 -300px no-repeat; }
-
-
-
 
 /*多项单选*/
 .multi-radio{ display:inline-block; vertical-align:middle; *display:inline; }
@@ -390,8 +381,6 @@ a.delete:hover{background:url(../images/icon.png) no-repeat -112px -38px;}
 .queren{ background:#f0f0f0; line-height:26px; margin:15px 0 0 0; padding:5px 10px;border:1px #dedede solid}
 .queren1{ border-bottom:1px #dedede solid; font-size:14px; margin-bottom:5px}
 
-
-
 /*ynewssoft4*/
 .ynewssoft4{ margin:15px 10px 10px 10px; border-bottom:1px #eee solid; padding-bottom:10px; background:#fff; padding:8px}
 .ynewssoft4 a{ color:#333}
@@ -421,14 +410,13 @@ span.classclose:hover span img{ display:inline-block}
 .leftbar2{ width:10%; }
 .rightbar2{ width:88.2%; padding-top:10px; padding-right:10px}
 
-
 .welcome span.welcome_yingyong{ position:relative; display:inline-block; line-height:60px; height:60px}
 .welcome span.welcome_yingyong span.mine{ display:none;}
 .welcome span.welcome_yingyong:hover span.mine{ display:block; position:absolute; top:50px; padding-top:5px; border:1px #dedede solid; width:280px; left:-168px;line-height:24px; min-height:200px; font-size:12px; background:#fff}
 .welcome span.welcome_yingyong:hover span.mine a{ color:#1279d5; display:inline-block}
 .welcome span.welcome_yingyong:hover span.mine a.func{ margin:10px 0 0px 5px; text-align:center ;width:60px; height:70px;}
 .welcome span.welcome_yingyong:hover span.mine a.func img{ width:50px; height:50px; display:block; margin:0 auto}
- 
+
 img.arrows_up{ position:absolute; left:80%; right:0; top:-10px}
 
 .classy{ padding:2px 0 8px 0}
@@ -442,12 +430,10 @@ a.tongji font{ display:block;}
 .tab4nav a img{ display:block; width:60px; height:60px}
 .tab4nav a.hovertab{ background: #f2f8fc;   }
 
-
 .tilei4 li{ line-height:30px; height:65px; background:#f45555;  margin:5px 0 15px 10px  ; text-align:center;border-radius:10px; width:180px; float:left; color:#fff; padding-top:3px}
 .tilei4 li a{ display:block; color:#fff}
 .tilei4 li span{ display:block; font-size:20px;}
 .tilei4 li img{ margin-top:5px; margin-right:5px}
-
 
 /*3-8 add css New*/
 .yijitab{ font-size:16px; padding:8px 0; background:#eee; text-indent:1em;}
@@ -456,9 +442,7 @@ a.tongji font{ display:block;}
 .pingbtab span.hover{ background:#2a8aed; color:#fff}
 .pingbtab span:hover{ background:#2a8aed; color:#fff}
 
-
 a.foldStyle2{ color:#0865a2!important;}
-
 
 .mainleft{ width: 19%;}
 .mainright{ width: 80%; padding-top: 7px;}

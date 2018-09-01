@@ -6,12 +6,12 @@ namespace AgileDev.Utiliy.Encrypt
 {
     public class DES
     {
-        /// <summary>   
-        /// 加密数据   
-        /// </summary>   
-        /// <param name="Text"></param>   
-        /// <param name="sKey"></param>   
-        /// <returns></returns>   
+        /// <summary>
+        /// 加密数据
+        /// </summary>
+        /// <param name="Text"></param>
+        /// <param name="sKey"></param>
+        /// <returns></returns>
         public static string Encrypt(string Text, string sKey)
         {
             var des = new DESCryptoServiceProvider();
@@ -31,12 +31,12 @@ namespace AgileDev.Utiliy.Encrypt
             return ret.ToString();
         }
 
-        /// <summary>   
-        /// 解密数据   
-        /// </summary>   
-        /// <param name="text"></param>   
-        /// <param name="sKey"></param>   
-        /// <returns></returns>   
+        /// <summary>
+        /// 解密数据
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="sKey"></param>
+        /// <returns></returns>
         public static string Decrypt(string text, string sKey)
         {
             var des = new DESCryptoServiceProvider();

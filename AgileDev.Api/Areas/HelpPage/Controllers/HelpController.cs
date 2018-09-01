@@ -1,8 +1,8 @@
+using AgileDev.Api.Areas.HelpPage.ModelDescriptions;
+using AgileDev.Api.Areas.HelpPage.Models;
 using System;
 using System.Web.Http;
 using System.Web.Mvc;
-using AgileDev.Api.Areas.HelpPage.ModelDescriptions;
-using AgileDev.Api.Areas.HelpPage.Models;
 
 namespace AgileDev.Api.Areas.HelpPage.Controllers
 {

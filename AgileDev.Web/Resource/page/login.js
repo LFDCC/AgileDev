@@ -1,6 +1,6 @@
 ﻿layui.config({
     base: "/Resource/modules/"
-}).use(['jax','form', 'nprogress'], function () {
+}).use(['jax', 'form', 'nprogress'], function () {
     var form = layui.form;
     var nprogress = layui.nprogress;
     var $ = layui.$;
@@ -25,7 +25,6 @@
                 }
             },
             complete: function () {
-
             }
         });
         return false;

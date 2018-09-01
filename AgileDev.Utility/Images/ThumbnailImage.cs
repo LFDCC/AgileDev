@@ -31,6 +31,7 @@ namespace AgileDev.Utiliy.Images
             /// </summary>
             public int Height { get; set; }
         }
+
         /// <summary>
         /// 生成缩略图
         /// </summary>

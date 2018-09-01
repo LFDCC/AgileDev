@@ -1,10 +1,10 @@
-@charset "utf-8";
+﻿@charset "utf-8";
 html,body{margin:0;border:0;padding:0;width:100%;_height:100%;font-size:14px;font-family: Arial,"微软雅黑","宋体"; background:url(../images/login.jpg) no-repeat top center;   color:#333333;word-break: break-all; line-height: 22px;}
 img {border:0px; }
 *{ padding:0; margin:0}
 ul,li,dl,dd,dt,span{ margin:0; padding:0;}
 li { list-style:none;}
-a {text-decoration:none;color:#d31f2a;outline:none;blr:expression(this.onFocus=this.blur()); } 
+a {text-decoration:none;color:#d31f2a;outline:none;blr:expression(this.onFocus=this.blur()); }
 a:hover { text-decoration:none; color:#d31f2a}
 .clear { clear:both; font-size:0; height:0; line-height:0;}
 .mt15 { margin-top:15px;}

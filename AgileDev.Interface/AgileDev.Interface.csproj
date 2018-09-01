@@ -42,8 +42,9 @@
   <ItemGroup>
     <Compile Include="IApp\IRecordServices.cs" />
     <Compile Include="IApp\IUserServices.cs" />
-    <Compile Include="IServices\IBaseServices.cs" />
-    <Compile Include="IServices\IUnitOfWork.cs" />
+    <Compile Include="ICore\IBaseServices.cs" />
+    <Compile Include="ICore\IEntity.cs" />
+    <Compile Include="ICore\IUnitOfWork.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

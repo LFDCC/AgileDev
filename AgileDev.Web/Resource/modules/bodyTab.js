@@ -22,20 +22,15 @@
         $("[lay-filter='" + _this.tabConfig.tabFilter + "']").on("click", ".oper_tab .refresh,.closePageOther,.closePageAll", function () {
             var _self = $(this);
             if (_self.hasClass("refresh")) {
-
                 $("iframe[lay-id=" + _this.curLayId() + "]").attr('src', $("iframe[lay-id=" + _this.curLayId() + "]").attr('src'));
-
             } else if (_self.hasClass("closePageOther")) {
-
                 $("[lay-filter='" + _this.tabConfig.tabFilter + "'] .top_tab li").each(function () {
                     if (!$(this).hasClass("isfirst") && !$(this).hasClass("layui-this")) {
                         var layid = $(this).attr("lay-id");
                         element.tabDelete(_this.tabConfig.tabFilter, layid)
                     }
                 })
-
             } else if (_self.hasClass("closePageAll")) {
-
                 $("[lay-filter='" + _this.tabConfig.tabFilter + "'] .top_tab li").each(function () {
                     if (!$(this).hasClass("isfirst")) {
                         var layid = $(this).attr("lay-id");
@@ -81,7 +76,7 @@
                     content: "<iframe src='" + _this.attr("data-url") + "' lay-id='" + layid + "'></frame>",
                     id: layid
                 })
-                $("iframe[lay-id="+layid+"]").on("load", function () {
+                $("iframe[lay-id=" + layid + "]").on("load", function () {
                     nprogress.done();
                 });
             }

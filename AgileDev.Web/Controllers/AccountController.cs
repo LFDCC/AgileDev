@@ -1,5 +1,4 @@
-﻿using AgileDev.App;
-using AgileDev.Common;
+﻿using AgileDev.Common;
 using AgileDev.Entity;
 using AgileDev.Interface.IApp;
 using AgileDev.Interface.IServices;
@@ -18,8 +17,8 @@ namespace AgileDev.Web.Controllers
 {
     public class AccountController : Controller
     {
-        IRecordServices _recordServices;
-        IUserServices _userServices;
+        private IRecordServices _recordServices;
+        private IUserServices _userServices;
 
         public AccountController(IUserServices userServices, IRecordServices recordServices)
         {
@@ -58,7 +57,6 @@ namespace AgileDev.Web.Controllers
             {
                 using (IUnitOfWork unitOfWork = IocConfig.Resolve<IUnitOfWork>())
                 {
-
                     T_User user0 = new T_User
                     {
                         CreateTime = DateTime.Now,
@@ -136,7 +134,6 @@ namespace AgileDev.Web.Controllers
 
                     return Json(new { status = HttpResult.success, jumpUrl = returnUrl ?? "/Claim/Index" });
                 }
-
             }
         }
 

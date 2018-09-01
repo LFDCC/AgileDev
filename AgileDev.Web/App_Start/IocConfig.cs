@@ -1,4 +1,4 @@
-﻿using AgileDev.Services;
+﻿using AgileDev.Core;
 using AgileDev.Web.Models;
 using Autofac;
 using Autofac.Integration.Mvc;
@@ -36,7 +36,6 @@ namespace AgileDev.Common
             {
                 throw new Exception($"IOC实例化类型{typeof(T).GetType().FullName}出错!" + ex.Message);
             }
-
         }
 
         /// <summary>
@@ -49,22 +48,25 @@ namespace AgileDev.Common
             var assemblys = BuildManager.GetReferencedAssemblies().Cast<Assembly>().ToList();
             /**
              * AsImplementedInterfaces 以接口的形式注入
-             * 
+             *
              * InstancePerDependency 实例的生命周期 每次调用都new一个新的实例（默认值）
              * InstancePerLifetimeScope 实例的生命周期 new 的范围内都是同一实例
              * SingleInstance 实例的生命周期 单利模式 static一直存在
              * */
 #if false
+
             #region 注册程序集下的指定类
 
             builder.RegisterAssemblyTypes(assemblys.ToArray())
              .Where(t => t.Name.Equals("AgileDevContext"))//注册指定类
              .InstancePerLifetimeScope();
 
-            #endregion
+            #endregion 注册程序集下的指定类
+
 #endif
 
 #if false
+
             #region 也可以注册指定程序集下的指定类
 
             Assembly ass = Assembly.Load("AgileDev.EntityFramework");
@@ -73,9 +75,10 @@ namespace AgileDev.Common
            .Where(t => t.Name == "AgileDevContext")
            .InstancePerLifetimeScope();
 
-            #endregion
+            #endregion 也可以注册指定程序集下的指定类
+
 #endif
-            
+
             builder.RegisterAssemblyTypes(assemblys.ToArray())
             .Where(t => t.Name.EndsWith("Services"))//查找所有程序集下面以BLL DAL结尾的类
             .AsImplementedInterfaces().InstancePerLifetimeScope();

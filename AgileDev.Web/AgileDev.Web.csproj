@@ -438,9 +438,9 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AgileDev.App\AgileDev.App.csproj">
+    <ProjectReference Include="..\AgileDev.Application\AgileDev.Application.csproj">
       <Project>{328305a9-7ed1-4772-886f-b52032a93c04}</Project>
-      <Name>AgileDev.App</Name>
+      <Name>AgileDev.Application</Name>
     </ProjectReference>
     <ProjectReference Include="..\AgileDev.EntityFramework\AgileDev.EntityFramework.csproj">
       <Project>{c04648d5-3dc6-4277-9be9-97ca619a674e}</Project>
@@ -454,9 +454,9 @@
       <Project>{6D2A94AE-A4BD-4DD9-A44C-F7E710B86CE4}</Project>
       <Name>AgileDev.Interface</Name>
     </ProjectReference>
-    <ProjectReference Include="..\AgileDev.Services\AgileDev.Services.csproj">
+    <ProjectReference Include="..\AgileDev.Core\AgileDev.Core.csproj">
       <Project>{89D785ED-FE4A-49D8-951D-70F1FE25EF38}</Project>
-      <Name>AgileDev.Services</Name>
+      <Name>AgileDev.Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\AgileDev.Utility\AgileDev.Utility.csproj">
       <Project>{EA56393F-5985-4BFE-B179-07B4E6C789C5}</Project>

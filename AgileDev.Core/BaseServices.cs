@@ -1,15 +1,14 @@
-﻿using AgileDev.EntityFramework;
-using AgileDev.Interface.IServices;
+﻿using AgileDev.Core.Entity;
+using AgileDev.EntityFramework;
 using System;
-using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
 using Z.EntityFramework.Plus;
 
-namespace AgileDev.Services
+namespace AgileDev.Core
 {
-    public class BaseServices<TEntity> : IBaseServices<TEntity> where TEntity : class
+    public class BaseServices<TEntity> : IBaseServices<TEntity> where TEntity : class, IEntity
     {
         protected AgileDevContext dbContext = new AgileDevContext();
 
@@ -23,6 +22,7 @@ namespace AgileDev.Services
         {
             dbContext.Entry(t).State = EntityState.Added;
         }
+
         /// <summary>
         /// 删除
         /// </summary>
@@ -45,7 +45,6 @@ namespace AgileDev.Services
             int result = dbContext.Set<TEntity>().Where(whereExpression).Delete();
             return result;
         }
-
 
         /// <summary>
         /// 修改
@@ -81,6 +80,7 @@ namespace AgileDev.Services
         {
             return dbContext.Set<TEntity>().FirstOrDefault(whereExpression);
         }
+
         /// <summary>
         /// 返回唯一 如果有多个值 则报异常
         /// </summary>
@@ -98,7 +98,7 @@ namespace AgileDev.Services
         /// <typeparam name="TEntity"></typeparam>
         /// <param name="whereExpression"></param>
         /// <returns></returns>
-        public IEnumerable<TEntity> List(Expression<Func<TEntity, bool>> whereExpression = null)
+        public IQueryable<TEntity> List(Expression<Func<TEntity, bool>> whereExpression = null)
         {
             if (whereExpression != null)
             {
@@ -109,6 +109,7 @@ namespace AgileDev.Services
                 return dbContext.Set<TEntity>();
             }
         }
+
         /// <summary>
         /// 获取分页数据
         /// </summary>
@@ -118,7 +119,7 @@ namespace AgileDev.Services
         /// <param name="pageSize"></param>
         /// <param name="total"></param>
         /// <returns></returns>
-        public IEnumerable<TEntity> GetPageing(Expression<Func<TEntity, bool>> whereExpression, int pageIndex, int pageSize, out int total)
+        public IQueryable<TEntity> GetPageing(Expression<Func<TEntity, bool>> whereExpression, int pageIndex, int pageSize, out int total)
         {
             var list = dbContext.Set<TEntity>().Where(whereExpression);
 
@@ -128,6 +129,7 @@ namespace AgileDev.Services
 
             return paper;
         }
+
         /// <summary>
         /// 提交
         /// </summary>
@@ -141,5 +143,6 @@ namespace AgileDev.Services
         {
             dbContext.Dispose();
         }
+        
     }
 }

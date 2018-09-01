@@ -167,7 +167,7 @@ layui.define(function (exports) {
     /**
      * Waits for all supplied jQuery promises and
      * increases the progress as the promises resolve.
-     * 
+     *
      * @param $promise jQUery Promise
      */
     (function () {
@@ -197,7 +197,6 @@ layui.define(function (exports) {
 
             return this;
         };
-
     })();
 
     /**
@@ -301,7 +300,6 @@ layui.define(function (exports) {
         return (-1 + n) * 100;
     }
 
-
     /**
      * (Internal) returns the correct CSS for changing the bar's
      * position given an n percentage, and speed and ease from Settings
@@ -344,10 +342,10 @@ layui.define(function (exports) {
     })();
 
     /**
-     * (Internal) Applies css properties to an element, similar to the jQuery 
+     * (Internal) Applies css properties to an element, similar to the jQuery
      * css method.
      *
-     * While this helper does assist with vendor prefixed property names, it 
+     * While this helper does assist with vendor prefixed property names, it
      * does not perform any manipulation of values prior to setting styles.
      */
 
@@ -443,8 +441,8 @@ layui.define(function (exports) {
     }
 
     /**
-     * (Internal) Gets a space separated list of the class names on the element. 
-     * The list is wrapped with a single space on each end to facilitate finding 
+     * (Internal) Gets a space separated list of the class names on the element.
+     * The list is wrapped with a single space on each end to facilitate finding
      * matches within the list.
      */
 

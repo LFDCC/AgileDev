@@ -1,19 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace AgileDev.Utiliy.Encrypt
 {
     public class Sha256
     {
-        /// <summary>  
-        /// 将字符串转换为sha256散列  
-        /// </summary>  
-        /// <param name="data">字符串进行转换</param>  
-        /// <returns>sha256散列或null</returns>  
+        /// <summary>
+        /// 将字符串转换为sha256散列
+        /// </summary>
+        /// <param name="data">字符串进行转换</param>
+        /// <returns>sha256散列或null</returns>
         public static string Encrypt(string data)
         {
             try

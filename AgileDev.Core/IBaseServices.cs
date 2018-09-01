@@ -1,10 +1,12 @@
-﻿using System;
+﻿using AgileDev.Core.Entity;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Linq.Expressions;
 
-namespace AgileDev.Interface.IServices
+namespace AgileDev.Core
 {
-    public interface IBaseServices<TEntity> : IDisposable where TEntity : class
+    public interface IBaseServices<TEntity> : IDisposable where TEntity : class,IEntity
     {
         /// <summary>
         /// 增加
@@ -13,6 +15,7 @@ namespace AgileDev.Interface.IServices
         /// <param name="t"></param>
         /// <returns></returns>
         void Add(TEntity t);
+
         /// <summary>
         /// 删除
         /// </summary>
@@ -28,6 +31,7 @@ namespace AgileDev.Interface.IServices
         /// <param name="whereExpression"></param>
         /// <returns></returns>
         int Delete(Expression<Func<TEntity, bool>> whereExpression);
+
         /// <summary>
         /// 修改
         /// </summary>
@@ -52,6 +56,7 @@ namespace AgileDev.Interface.IServices
         /// <param name="whereExpression"></param>
         /// <returns></returns>
         TEntity FirstOrDefault(Expression<Func<TEntity, bool>> whereExpression);
+
         /// <summary>
         /// 返回唯一 如果有多个值 则报异常
         /// </summary>
@@ -66,7 +71,7 @@ namespace AgileDev.Interface.IServices
         /// <typeparam name="TEntity"></typeparam>
         /// <param name="whereExpression"></param>
         /// <returns></returns>
-        IEnumerable<TEntity> List(Expression<Func<TEntity, bool>> whereExpression = null);
+        IQueryable<TEntity> List(Expression<Func<TEntity, bool>> whereExpression = null);
 
         /// <summary>
         /// 获取分页数据
@@ -77,7 +82,7 @@ namespace AgileDev.Interface.IServices
         /// <param name="pageSize"></param>
         /// <param name="total"></param>
         /// <returns></returns>
-        IEnumerable<TEntity> GetPageing(Expression<Func<TEntity, bool>> whereExpression, int pageIndex, int pageSize, out int total);
+        IQueryable<TEntity> GetPageing(Expression<Func<TEntity, bool>> whereExpression, int pageIndex, int pageSize, out int total);
 
         /// <summary>
         /// 提交

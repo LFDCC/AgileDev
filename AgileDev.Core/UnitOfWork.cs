@@ -1,7 +1,7 @@
-﻿using AgileDev.Interface.IServices;
+﻿using AgileDev.Interface.ICore;
 using System.Transactions;
 
-namespace AgileDev.Services
+namespace AgileDev.Core
 {
     /// <summary>
     /// 用于事务操作
@@ -9,6 +9,7 @@ namespace AgileDev.Services
     public class UnitOfWork : IUnitOfWork
     {
         private TransactionScope trans = null;
+
         public UnitOfWork()
         {
             trans = new TransactionScope();

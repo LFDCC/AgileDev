@@ -1,19 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace AgileDev.Utiliy.Encrypt
 {
     public class Base64
     {
-
-        /// <summary>  
-        /// 将普通文本转换成Base64编码的文本  
-        /// </summary>  
-        /// <param name="value">普通文本</param>  
-        /// <returns></returns>  
+        /// <summary>
+        /// 将普通文本转换成Base64编码的文本
+        /// </summary>
+        /// <param name="value">普通文本</param>
+        /// <returns></returns>
         public static string StringToBase64String(string value)
         {
             if (string.IsNullOrEmpty(value))
@@ -33,14 +29,13 @@ namespace AgileDev.Utiliy.Encrypt
             {
                 throw new Exception(ex.Message);
             }
-
         }
 
-        /// <summary>  
-        /// 将Base64编码的文本转换成普通文本  
-        /// </summary>  
-        /// <param name="base64">Base64编码的文本</param>  
-        /// <returns></returns>  
+        /// <summary>
+        /// 将Base64编码的文本转换成普通文本
+        /// </summary>
+        /// <param name="base64">Base64编码的文本</param>
+        /// <returns></returns>
         public static string Base64StringToString(string base64)
         {
             if (string.IsNullOrEmpty(base64))
@@ -59,11 +54,11 @@ namespace AgileDev.Utiliy.Encrypt
             }
         }
 
-        /// <summary>  
-        /// 将Byte[]转换成Base64编码文本  
-        /// </summary>  
-        /// <param name="binBuffer">Byte[]</param>  
-        /// <returns></returns>  
+        /// <summary>
+        /// 将Byte[]转换成Base64编码文本
+        /// </summary>
+        /// <param name="binBuffer">Byte[]</param>
+        /// <returns></returns>
         public string ToBase64(byte[] binBuffer)
         {
             if (binBuffer == null)
@@ -82,13 +77,13 @@ namespace AgileDev.Utiliy.Encrypt
             {
                 throw new Exception(ex.Message);
             }
-
         }
-        /// <summary>  
-        /// 将Base64编码文本转换成Byte[]  
-        /// </summary>  
-        /// <param name="base64">Base64编码文本</param>  
-        /// <returns></returns>  
+
+        /// <summary>
+        /// 将Base64编码文本转换成Byte[]
+        /// </summary>
+        /// <param name="base64">Base64编码文本</param>
+        /// <returns></returns>
         public byte[] Base64ToBytes(string base64)
         {
             if (string.IsNullOrEmpty(base64))

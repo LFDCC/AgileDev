@@ -14,7 +14,7 @@ namespace AgileDev.Web.Models
             {
                 ClaimsIdentity identity = HttpContext.Current.User.Identity as ClaimsIdentity;
                 T_User user = identity.Name.ToObject<T_User>();
-                var role=identity.FindFirstValue(ClaimTypes.Role);
+                var role = identity.FindFirstValue(ClaimTypes.Role);
                 var uid = identity.GetUserId();
                 return user;
             }

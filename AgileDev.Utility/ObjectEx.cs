@@ -1,12 +1,12 @@
-﻿using System;
+﻿using LinqKit;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Linq.Expressions;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
-using Newtonsoft.Json.Linq;
-using LinqKit;
 
 namespace AgileDev.Utiliy
 {
@@ -27,8 +27,8 @@ namespace AgileDev.Utiliy
         public static Expression<Func<T, bool>> And<T>(this Expression<Func<T, bool>> expr1, Expression<Func<T, bool>> expr2)
         {
             return PredicateBuilder.And(expr1, expr2);
-
         }
+
         /// <summary>
         /// 合并表达式 expr1 Or expr2
         /// </summary>
@@ -41,8 +41,7 @@ namespace AgileDev.Utiliy
             return PredicateBuilder.Or(expr1, expr2);
         }
 
-
-        #endregion
+        #endregion 表达式树扩展
 
         #region JSON扩展
 
@@ -50,29 +49,34 @@ namespace AgileDev.Utiliy
         {
             return Json == null ? null : JsonConvert.DeserializeObject(Json);
         }
+
         public static string ToJson(this object obj, string format = "yyyy-MM-dd HH:mm:ss")
         {
             var timeConverter = new IsoDateTimeConverter { DateTimeFormat = format };
             return JsonConvert.SerializeObject(obj, timeConverter);
         }
+
         public static T ToObject<T>(this string Json)
         {
             return Json == null ? default(T) : JsonConvert.DeserializeObject<T>(Json);
         }
+
         public static List<T> ToList<T>(this string Json)
         {
             return Json == null ? null : JsonConvert.DeserializeObject<List<T>>(Json);
         }
+
         public static DataTable ToTable(this string Json)
         {
             return Json == null ? null : JsonConvert.DeserializeObject<DataTable>(Json);
         }
+
         public static JObject ToJObject(this string Json)
         {
             return Json == null ? JObject.Parse("{}") : JObject.Parse(Json.Replace("&nbsp;", ""));
         }
 
-        #endregion
+        #endregion JSON扩展
 
         public static int ConvertToIntBaseZero(this object o)
         {
@@ -97,6 +101,7 @@ namespace AgileDev.Utiliy
 
             return intRtn;
         }
+
         public static decimal ConvertToDecimalBaseMinValue(this object o)
         {
             decimal decRtn = decimal.MinValue;
@@ -130,14 +135,12 @@ namespace AgileDev.Utiliy
 
                     if (trueStrings.Contains(str))
                     {
-
                         bolRtn = true;
                     }
                 }
             }
             catch
             {
-
             }
 
             return bolRtn;
@@ -193,11 +196,9 @@ namespace AgileDev.Utiliy
             }
             catch
             {
-
             }
 
             return dtRtn;
         }
-
     }
 }

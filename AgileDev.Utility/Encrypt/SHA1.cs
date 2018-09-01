@@ -1,19 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace AgileDev.Utiliy.Encrypt
 {
     public class Sha1
     {
-        /// <summary>  
-        /// 签名算法  
-        /// </summary>  
-        /// <param name="str"></param>  
-        /// <returns></returns>  
+        /// <summary>
+        /// 签名算法
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
         public static string Encrypt(string str)
         {
             if (string.IsNullOrEmpty(str))
@@ -22,14 +19,14 @@ namespace AgileDev.Utiliy.Encrypt
             }
             try
             {
-                //建立SHA1对象  
+                //建立SHA1对象
                 SHA1 sha = new SHA1CryptoServiceProvider();
-                //将mystr转换成byte[]   
+                //将mystr转换成byte[]
                 var enc = new ASCIIEncoding();
                 var dataToHash = enc.GetBytes(str);
-                //Hash运算  
+                //Hash运算
                 var dataHashed = sha.ComputeHash(dataToHash);
-                //将运算结果转换成string  
+                //将运算结果转换成string
                 var hash = BitConverter.ToString(dataHashed).Replace("-", "");
                 return hash;
             }
@@ -37,7 +34,6 @@ namespace AgileDev.Utiliy.Encrypt
             {
                 throw new Exception(ex.Message);
             }
-
         }
     }
 }

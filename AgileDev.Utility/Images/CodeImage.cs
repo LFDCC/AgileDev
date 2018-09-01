@@ -14,7 +14,6 @@ namespace AgileDev.Utiliy.Images
     /// </summary>
     public class CodeImage
     {
-
         /// <summary>
         /// 生成二维码,输出Bitmap对象(Bitmap map =CodeImage.QrCode("123"))
         /// </summary>
@@ -84,6 +83,7 @@ namespace AgileDev.Utiliy.Images
             Bitmap map = writer.Write(content);
             return map;
         }
+
         /// <summary>
         /// 生成条形码，保存成图片(CodeImage.BarCode(@"F:\brcode.png", "456"))
         /// </summary>
@@ -138,11 +138,10 @@ namespace AgileDev.Utiliy.Images
             hint.Add(EncodeHintType.CHARACTER_SET, "UTF-8");
             hint.Add(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.H);
 
-            //生成二维码 
+            //生成二维码
             BitMatrix bm = writer.encode(content, BarcodeFormat.QR_CODE, Width, Height, hint);
             BarcodeWriter barcodeWriter = new BarcodeWriter();
             Bitmap map = barcodeWriter.Write(bm);
-
 
             //获取二维码实际尺寸（去掉二维码两边空白后的实际尺寸）
             int[] rectangle = bm.getEnclosingRectangle();
@@ -188,11 +187,10 @@ namespace AgileDev.Utiliy.Images
             hint.Add(EncodeHintType.CHARACTER_SET, "UTF-8");
             hint.Add(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.H);
 
-            //生成二维码 
+            //生成二维码
             BitMatrix bm = writer.encode(content, BarcodeFormat.QR_CODE, Width, Height, hint);
             BarcodeWriter barcodeWriter = new BarcodeWriter();
             Bitmap map = barcodeWriter.Write(bm);
-
 
             //获取二维码实际尺寸（去掉二维码两边空白后的实际尺寸）
             int[] rectangle = bm.getEnclosingRectangle();
@@ -219,8 +217,6 @@ namespace AgileDev.Utiliy.Images
             myGraphic.DrawImage(logo, middleL, middleT, middleW, middleH);
 
             return bmpimg;
-
         }
-
     }
 }
