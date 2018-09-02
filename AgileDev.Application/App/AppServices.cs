@@ -1,16 +1,20 @@
-﻿using AgileDev.Core.Entity;
-using AgileDev.EntityFramework;
+﻿using AgileDev.Core.Base;
 using System;
-using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
-using Z.EntityFramework.Plus;
 
-namespace AgileDev.Core
+namespace AgileDev.Application.App
 {
-    public class BaseServices<TEntity> : IBaseServices<TEntity> where TEntity : class, IEntity
+    public class AppServices<TEntity> : IAppServices<TEntity> where TEntity : class
     {
-        protected AgileDevContext dbContext = new AgileDevContext();
+        public IBaseServices<TEntity> baseServices;
+        public AppServices()
+        {
+            if (baseServices == null)
+            {
+                baseServices = new BaseServices<TEntity>();
+            }
+        }
 
         /// <summary>
         /// 增加
@@ -20,7 +24,7 @@ namespace AgileDev.Core
         /// <returns></returns>
         public void Add(TEntity t)
         {
-            dbContext.Entry(t).State = EntityState.Added;
+            baseServices.Add(t);
         }
 
         /// <summary>
@@ -31,7 +35,7 @@ namespace AgileDev.Core
         /// <returns></returns>
         public void Delete(TEntity t)
         {
-            dbContext.Entry(t).State = EntityState.Deleted;
+            baseServices.Delete(t);
         }
 
         /// <summary>
@@ -42,8 +46,7 @@ namespace AgileDev.Core
         /// <returns></returns>
         public int Delete(Expression<Func<TEntity, bool>> whereExpression)
         {
-            int result = dbContext.Set<TEntity>().Where(whereExpression).Delete();
-            return result;
+            return baseServices.Delete(whereExpression);
         }
 
         /// <summary>
@@ -54,7 +57,7 @@ namespace AgileDev.Core
         /// <returns></returns>
         public void Update(TEntity t)
         {
-            dbContext.Entry(t).State = EntityState.Modified;
+            baseServices.Update(t);
         }
 
         /// <summary>
@@ -66,8 +69,7 @@ namespace AgileDev.Core
         /// <returns></returns>
         public int Update(Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TEntity>> updateExpression)
         {
-            int result = dbContext.Set<TEntity>().Where(whereExpression).Update(updateExpression);
-            return result;
+            return baseServices.Update(whereExpression, updateExpression);
         }
 
         /// <summary>
@@ -78,7 +80,7 @@ namespace AgileDev.Core
         /// <returns></returns>
         public TEntity FirstOrDefault(Expression<Func<TEntity, bool>> whereExpression)
         {
-            return dbContext.Set<TEntity>().FirstOrDefault(whereExpression);
+            return baseServices.FirstOrDefault(whereExpression);
         }
 
         /// <summary>
@@ -89,7 +91,7 @@ namespace AgileDev.Core
         /// <returns></returns>
         public TEntity SingleOrDefault(Expression<Func<TEntity, bool>> whereExpression)
         {
-            return dbContext.Set<TEntity>().SingleOrDefault(whereExpression);
+            return baseServices.SingleOrDefault(whereExpression);
         }
 
         /// <summary>
@@ -100,14 +102,7 @@ namespace AgileDev.Core
         /// <returns></returns>
         public IQueryable<TEntity> List(Expression<Func<TEntity, bool>> whereExpression = null)
         {
-            if (whereExpression != null)
-            {
-                return dbContext.Set<TEntity>().Where(whereExpression);
-            }
-            else
-            {
-                return dbContext.Set<TEntity>();
-            }
+            return baseServices.List(whereExpression);
         }
 
         /// <summary>
@@ -121,13 +116,7 @@ namespace AgileDev.Core
         /// <returns></returns>
         public IQueryable<TEntity> GetPageing(Expression<Func<TEntity, bool>> whereExpression, int pageIndex, int pageSize, out int total)
         {
-            var list = dbContext.Set<TEntity>().Where(whereExpression);
-
-            total = list.Count();
-
-            var paper = list.Take(pageSize * pageIndex).Skip(pageSize * (pageIndex - 1));
-
-            return paper;
+            return baseServices.GetPageing(whereExpression, pageIndex, pageSize, out total);
         }
 
         /// <summary>
@@ -136,13 +125,8 @@ namespace AgileDev.Core
         /// <returns></returns>
         public int Save()
         {
-            return dbContext.SaveChanges();
+            return baseServices.Save();
         }
 
-        public void Dispose()
-        {
-            dbContext.Dispose();
-        }
-        
     }
 }

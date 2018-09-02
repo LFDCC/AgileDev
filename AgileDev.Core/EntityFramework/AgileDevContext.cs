@@ -1,4 +1,4 @@
-﻿namespace AgileDev.EntityFramework
+﻿namespace AgileDev.Core.EntityFramework
 {
     using AgileDev.Entity;
     using System.Data.Entity;

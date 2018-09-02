@@ -1,13 +1,13 @@
-﻿using AgileDev.Application.Record;
-using AgileDev.Core.Entity;
+﻿using AgileDev.Application.App;
 using AgileDev.Core.Record;
-using AgileDev.Core.User;
+using AgileDev.Entity;
 
-namespace AgileDev.Application.User
+namespace AgileDev.Application.Record
 {
     public class RecordAppServices : AppServices<T_Record>, IRecordAppServices
     {
-        private IRecordBaseServices recordServices { get; }
+        IRecordBaseServices recordServices;
+
         public RecordAppServices(IRecordBaseServices _recordServices)
         {
             recordServices = _recordServices;

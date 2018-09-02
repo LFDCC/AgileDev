@@ -1,9 +1,10 @@
-namespace AgileDev.Core.Entity
+namespace AgileDev.Entity.Model
 {
-    using Interface.ICore;
+    using System;
+    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
-    public partial class T_Record : IEntity
+    public partial class T_Record
     {
         [Key]
         public int RecordId { get; set; }
@@ -15,5 +16,10 @@ namespace AgileDev.Core.Entity
         public string Remark { get; set; }
 
         public int UserId { get; set; }
+
+        public static implicit operator List<object>(T_Record v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

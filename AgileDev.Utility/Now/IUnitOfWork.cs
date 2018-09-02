@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace AgileDev.Interface.ICore
+namespace AgileDev.Utiliy.Now
 {
     public interface IUnitOfWork : IDisposable
     {

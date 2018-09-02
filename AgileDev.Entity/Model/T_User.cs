@@ -1,10 +1,9 @@
-namespace AgileDev.Core.Entity
+namespace AgileDev.Entity.Model
 {
-    using Interface.ICore;
     using System;
     using System.ComponentModel.DataAnnotations;
 
-    public partial class T_User : IEntity
+    public partial class T_User
     {
         [Key]
         public int UserId { get; set; }

@@ -1,12 +1,10 @@
-﻿using AgileDev.Core.Entity;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Linq;
 using System.Linq.Expressions;
 
-namespace AgileDev.Core
+namespace AgileDev.Core.Base
 {
-    public interface IBaseServices<TEntity> : IDisposable where TEntity : class,IEntity
+    public interface IBaseServices<TEntity> : IDisposable where TEntity : class
     {
         /// <summary>
         /// 增加

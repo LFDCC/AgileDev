@@ -1,4 +1,4 @@
-﻿using AgileDev.Core;
+﻿using AgileDev.Utiliy.Now;
 using AgileDev.Web.Models;
 using Autofac;
 using Autofac.Integration.Mvc;
@@ -8,7 +8,7 @@ using System.Reflection;
 using System.Web.Compilation;
 using System.Web.Mvc;
 
-namespace AgileDev.Common
+namespace AgileDev.Web
 {
     public class IocConfig
     {
@@ -80,7 +80,7 @@ namespace AgileDev.Common
 #endif
 
             builder.RegisterAssemblyTypes(assemblys.ToArray())
-            .Where(t => t.Name.EndsWith("Services"))//查找所有程序集下面以BLL DAL结尾的类
+            .Where(t => t.Name.EndsWith("Services"))//注册所有的Services类
             .AsImplementedInterfaces().InstancePerLifetimeScope();
 
             builder.RegisterType<TestOne>().InstancePerLifetimeScope();//注册指定的类

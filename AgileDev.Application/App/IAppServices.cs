@@ -1,11 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 
-namespace AgileDev.Interface.ICore
+namespace AgileDev.Application.App
 {
-    public interface IBaseServices<TEntity> : IDisposable where TEntity : class,IEntity
+    public interface IAppServices<TEntity> where TEntity : class
     {
         /// <summary>
         /// 增加

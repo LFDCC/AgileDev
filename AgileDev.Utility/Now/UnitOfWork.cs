@@ -1,12 +1,13 @@
 ﻿using System.Transactions;
 
-namespace AgileDev.Core
+namespace AgileDev.Utiliy.Now
 {
     /// <summary>
     /// 用于事务操作
     /// </summary>
     public class UnitOfWork : IUnitOfWork
     {
+
         private TransactionScope trans = null;
 
         public UnitOfWork()

@@ -51,11 +51,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BaseServices.cs" />
-    <Compile Include="Entity\IEntity.cs" />
-    <Compile Include="Entity\T_Record.cs" />
-    <Compile Include="Entity\T_User.cs" />
-    <Compile Include="IBaseServices.cs" />
+    <Compile Include="Base\BaseServices.cs" />
+    <Compile Include="EntityFramework\AgileDevContext.cs" />
+    <Compile Include="Base\IBaseServices.cs" />
     <Compile Include="IUnitOfWork.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Record\IRecordBaseServices.cs" />
@@ -65,12 +63,8 @@
     <Compile Include="User\UserBaseServices.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AgileDev.EntityFramework\AgileDev.EntityFramework.csproj">
-      <Project>{C04648D5-3DC6-4277-9BE9-97CA619A674E}</Project>
-      <Name>AgileDev.EntityFramework</Name>
-    </ProjectReference>
     <ProjectReference Include="..\AgileDev.Entity\AgileDev.Entity.csproj">
-      <Project>{44760197-9398-41e6-836b-ea219f53ff84}</Project>
+      <Project>{44760197-9398-41E6-836B-EA219F53FF84}</Project>
       <Name>AgileDev.Entity</Name>
     </ProjectReference>
   </ItemGroup>

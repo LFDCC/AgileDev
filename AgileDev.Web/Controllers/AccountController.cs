@@ -1,9 +1,10 @@
-﻿using AgileDev.Common;
+﻿using AgileDev.Application.Enum;
+using AgileDev.Application.Record;
+using AgileDev.Application.User;
 using AgileDev.Entity;
-using AgileDev.Interface.IApp;
-using AgileDev.Interface.IServices;
 using AgileDev.Utiliy;
 using AgileDev.Utiliy.Encrypt;
+using AgileDev.Utiliy.Now;
 using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
@@ -17,13 +18,13 @@ namespace AgileDev.Web.Controllers
 {
     public class AccountController : Controller
     {
-        private IRecordServices _recordServices;
-        private IUserServices _userServices;
+        private IRecordAppServices _recordServices;
+        private IUserAppServices _userServices;
 
-        public AccountController(IUserServices userServices, IRecordServices recordServices)
+        public AccountController(IUserAppServices userServices, IRecordAppServices recordServices)
         {
             _userServices = userServices;
-            _recordServices = recordServices;
+            _recordServices = recordServices;            
         }
 
         [AllowAnonymous]

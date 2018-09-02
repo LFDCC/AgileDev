@@ -39,6 +39,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -48,11 +49,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AppServices.cs" />
-    <Compile Include="IAppServices.cs" />
+    <Compile Include="App\AppServices.cs" />
+    <Compile Include="App\IAppServices.cs" />
+    <Compile Include="Enum\HttpResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Record\IRecordAppServices.cs" />
     <Compile Include="Record\RecordAppServices.cs" />
+    <Compile Include="User\Dto\User_Record_Dto.cs" />
     <Compile Include="User\IUserAppServices.cs" />
     <Compile Include="User\UserAppServices.cs" />
   </ItemGroup>
@@ -65,10 +68,13 @@
       <Project>{89d785ed-fe4a-49d8-951d-70f1fe25ef38}</Project>
       <Name>AgileDev.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\AgileDev.Entity\AgileDev.Entity.csproj">
+      <Project>{44760197-9398-41E6-836B-EA219F53FF84}</Project>
+      <Name>AgileDev.Entity</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Record\Dto\" />
-    <Folder Include="User\Dto\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,5 +1,5 @@
-﻿using AgileDev.Core.Entity;
-using AgileDev.Interface.ICore;
+﻿using AgileDev.Core.Base;
+using AgileDev.Entity;
 
 namespace AgileDev.Core.Record
 {
