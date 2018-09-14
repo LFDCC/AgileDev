@@ -1,11 +1,14 @@
 ﻿using AgileDev.Core.Base;
+using AgileDev.Utility.Application;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Threading.Tasks;
 
 namespace AgileDev.Application.App
 {
-    public class AppServices<TEntity> : IAppServices<TEntity> where TEntity : class
+    public abstract class AppServices<TEntity> : IAppServices<TEntity> where TEntity : class
     {
         public IBaseServices<TEntity> baseServices;
         public AppServices()
@@ -67,9 +70,9 @@ namespace AgileDev.Application.App
         /// <param name="whereExpression">条件</param>
         /// <param name="updateExpression">表达式</param>
         /// <returns></returns>
-        public int Update(Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TEntity>> updateExpression)
+        public async Task<int> UpdateAsync(Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TEntity>> updateExpression)
         {
-            return baseServices.Update(whereExpression, updateExpression);
+            return await baseServices.UpdateAsync(whereExpression, updateExpression);
         }
 
         /// <summary>
@@ -78,9 +81,9 @@ namespace AgileDev.Application.App
         /// <typeparam name="TEntity"></typeparam>
         /// <param name="whereExpression"></param>
         /// <returns></returns>
-        public TEntity FirstOrDefault(Expression<Func<TEntity, bool>> whereExpression)
+        public async Task<TEntity> FirstOrDefaultAsync(Expression<Func<TEntity, bool>> whereExpression)
         {
-            return baseServices.FirstOrDefault(whereExpression);
+            return await baseServices.FirstOrDefaultAsync(whereExpression);
         }
 
         /// <summary>
@@ -89,9 +92,9 @@ namespace AgileDev.Application.App
         /// <typeparam name="TEntity"></typeparam>
         /// <param name="whereExpression"></param>
         /// <returns></returns>
-        public TEntity SingleOrDefault(Expression<Func<TEntity, bool>> whereExpression)
+        public async Task<TEntity> SingleOrDefaultAsync(Expression<Func<TEntity, bool>> whereExpression)
         {
-            return baseServices.SingleOrDefault(whereExpression);
+            return await baseServices.SingleOrDefaultAsync(whereExpression);
         }
 
         /// <summary>
@@ -100,9 +103,9 @@ namespace AgileDev.Application.App
         /// <typeparam name="TEntity"></typeparam>
         /// <param name="whereExpression"></param>
         /// <returns></returns>
-        public IQueryable<TEntity> List(Expression<Func<TEntity, bool>> whereExpression = null)
+        public async Task<List<TEntity>> ListAsync(Expression<Func<TEntity, bool>> whereExpression = null)
         {
-            return baseServices.List(whereExpression);
+            return await baseServices.ListAsync(whereExpression);
         }
 
         /// <summary>
@@ -114,9 +117,18 @@ namespace AgileDev.Application.App
         /// <param name="pageSize"></param>
         /// <param name="total"></param>
         /// <returns></returns>
-        public IQueryable<TEntity> GetPageing(Expression<Func<TEntity, bool>> whereExpression, int pageIndex, int pageSize, out int total)
+        public async Task<Paging<TEntity>> GetPagingAsync(Expression<Func<TEntity, bool>> whereExpression, int pageIndex, int pageSize)
         {
-            return baseServices.GetPageing(whereExpression, pageIndex, pageSize, out total);
+            return await baseServices.GetPagingAsync(whereExpression, pageIndex, pageSize);
+        }
+
+        /// <summary>
+        /// 异步提交
+        /// </summary>
+        /// <returns></returns>
+        public async Task<int> SaveAsync()
+        {
+            return await baseServices.SaveAsync();
         }
 
         /// <summary>
@@ -128,5 +140,36 @@ namespace AgileDev.Application.App
             return baseServices.Save();
         }
 
+        /// <summary>
+        /// 执行sql查询
+        /// </summary>
+        /// <typeparam name="TElement"></typeparam>
+        /// <param name="sql"></param>
+        /// <param name="parameters"></param>
+        /// <returns></returns>
+        public async Task<List<TElement>> SqlQueryAsync<TElement>(string sql, params object[] parameters)
+        {
+            return await baseServices.SqlQueryAsync<TElement>(sql,parameters);
+        }
+
+        /// <summary>
+        /// 执行sql返回受影响行数
+        /// </summary>
+        /// <param name="sql"></param>
+        /// <param name="parameters"></param>
+        /// <returns></returns>
+        public async Task<int> ExecuteSqlCommandAsync(string sql, params object[] parameters)
+        {
+            return await baseServices.ExecuteSqlCommandAsync(sql, parameters);
+        }
+
+        /// <summary>
+        /// 获取实体的IQueryable对象
+        /// </summary>
+        /// <returns></returns>
+        public IQueryable<TEntity> GetEntities()
+        {
+            return baseServices.GetEntities();
+        }
     }
 }

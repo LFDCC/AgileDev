@@ -64,6 +64,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Application\HttpResult.cs" />
     <Compile Include="Encrypt\Base64.cs" />
     <Compile Include="Encrypt\DES.cs" />
     <Compile Include="Encrypt\MD5.cs" />
@@ -74,7 +75,8 @@
     <Compile Include="Images\VerificationCode.cs" />
     <Compile Include="Now\IUnitOfWork.cs" />
     <Compile Include="Now\UnitOfWork.cs" />
-    <Compile Include="ObjectEx.cs" />
+    <Compile Include="Extension\ObjectEx.cs" />
+    <Compile Include="Application\Paging.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

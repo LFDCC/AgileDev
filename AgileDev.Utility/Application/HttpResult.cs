@@ -1,4 +1,4 @@
-﻿namespace AgileDev.Application.Enum
+﻿namespace AgileDev.Utility.Application
 {
     public enum HttpResult
     {

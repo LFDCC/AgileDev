@@ -1,5 +1,5 @@
 ﻿using AgileDev.Entity;
-using AgileDev.Utiliy;
+using AgileDev.Utiliy.Extension;
 using Microsoft.AspNet.Identity;
 using System.Security.Claims;
 using System.Web;

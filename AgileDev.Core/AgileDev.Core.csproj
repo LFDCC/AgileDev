@@ -52,13 +52,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Base\BaseServices.cs" />
+    <Compile Include="Entities\T_Record.cs" />
+    <Compile Include="Entities\T_User.cs" />
     <Compile Include="EntityFramework\AgileDevContext.cs" />
     <Compile Include="Base\IBaseServices.cs" />
-    <Compile Include="IUnitOfWork.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Record\IRecordBaseServices.cs" />
     <Compile Include="Record\RecordBaseServices.cs" />
-    <Compile Include="UnitOfWork.cs" />
     <Compile Include="User\IUserBaseServices.cs" />
     <Compile Include="User\UserBaseServices.cs" />
   </ItemGroup>
@@ -66,6 +66,10 @@
     <ProjectReference Include="..\AgileDev.Entity\AgileDev.Entity.csproj">
       <Project>{44760197-9398-41E6-836B-EA219F53FF84}</Project>
       <Name>AgileDev.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AgileDev.Utility\AgileDev.Utility.csproj">
+      <Project>{EA56393F-5985-4BFE-B179-07B4E6C789C5}</Project>
+      <Name>AgileDev.Utility</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

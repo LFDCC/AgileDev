@@ -1,4 +1,4 @@
-﻿using AgileDev.Application.Enum;
+﻿using AgileDev.Utility.Application;
 using AgileDev.Web.Models;
 using System.Web;
 using System.Web.Mvc;

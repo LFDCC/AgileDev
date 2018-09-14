@@ -8,7 +8,7 @@ using System.Data;
 using System.Linq;
 using System.Linq.Expressions;
 
-namespace AgileDev.Utiliy
+namespace AgileDev.Utiliy.Extension
 {
     /// <summary>
     /// 扩展方法

@@ -1,4 +1,4 @@
-﻿using AgileDev.Application.Enum;
+﻿using AgileDev.Utility.Application;
 using System.Web.Mvc;
 
 namespace AgileDev.Web.Filter

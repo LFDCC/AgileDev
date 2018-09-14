@@ -1,9 +1,10 @@
-﻿using AgileDev.Application.Enum;
-using AgileDev.Application.Record;
+﻿using AgileDev.Application.Record;
 using AgileDev.Application.User;
+using AgileDev.Application.User.Dto;
 using AgileDev.Entity;
-using AgileDev.Utiliy;
+using AgileDev.Utility.Application;
 using AgileDev.Utiliy.Encrypt;
+using AgileDev.Utiliy.Extension;
 using AgileDev.Utiliy.Now;
 using Microsoft.AspNet.Identity;
 using System;
@@ -11,6 +12,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Security.Claims;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
@@ -24,11 +26,11 @@ namespace AgileDev.Web.Controllers
         public AccountController(IUserAppServices userServices, IRecordAppServices recordServices)
         {
             _userServices = userServices;
-            _recordServices = recordServices;            
+            _recordServices = recordServices;
         }
 
         [AllowAnonymous]
-        public ActionResult Login(string ReturnUrl)
+        public async Task<ActionResult> Login(string ReturnUrl)
         {
 #if true
             //如果使用多个对象可以使用IUnitOfWork进行事务提交，同一对象下的Save本身就是事务的
@@ -55,7 +57,12 @@ namespace AgileDev.Web.Controllers
                 _userServices.Save();
             }
 #endif
+
             {
+                var ur = _userServices.TestUser();
+
+                var ff = await ur;
+                
                 using (IUnitOfWork unitOfWork = IocConfig.Resolve<IUnitOfWork>())
                 {
                     T_User user0 = new T_User
@@ -73,12 +80,12 @@ namespace AgileDev.Web.Controllers
 
                     {
                         Remark = "test",
-                        UserId = 11,
+                        UserId = user0.UserId,
                         Title = "asdfdsf"
                     };
                     _recordServices.Add(record);
                     _recordServices.Save();
-                    throw new Exception("error");
+                    // throw new Exception("error");
 
                     //提交
                     unitOfWork.Commit();
@@ -97,28 +104,28 @@ namespace AgileDev.Web.Controllers
             where = where.And(u => u.RealName == "炒鸡管理员1");
             where = where.Or(u => u.RealName == "炒鸡管理员1");
 
-            var user = _userServices.List(where).ToList();
+            var user = _userServices.ListAsync(where);
 
             ViewBag.returnUrl = ReturnUrl;
             return View();
         }
 
         [HttpPost]
-        public ActionResult Login(string username, string password, string returnUrl)
+        public async Task<ActionResult> LoginAsync(string username, string password, string returnUrl)
         {
             if (!Request.IsAjaxRequest())
             {
                 return View();
             }
             password = MD5.Encrypt(password).ToUpper();
-            T_User user = _userServices.SingleOrDefault(t => t.UserName.Equals(username));
+            T_User user = await _userServices.SingleOrDefaultAsync(t => t.UserName.Equals(username));
             if (user == null)
             {
                 return Json(new { status = HttpResult.fail, message = "用户名不存在！" });
             }
             else
             {
-                user = _userServices.SingleOrDefault(t => t.UserName.Equals(username) && t.Password.Equals(password));
+                user =await _userServices.SingleOrDefaultAsync(t => t.UserName.Equals(username) && t.Password.Equals(password));
                 if (user == null)
                 {
                     return Json(new { status = HttpResult.fail, message = "密码错误！" });

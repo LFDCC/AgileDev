@@ -51,11 +51,11 @@
   <ItemGroup>
     <Compile Include="App\AppServices.cs" />
     <Compile Include="App\IAppServices.cs" />
-    <Compile Include="Enum\HttpResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Record\IRecordAppServices.cs" />
     <Compile Include="Record\RecordAppServices.cs" />
     <Compile Include="User\Dto\User_Record_Dto.cs" />
+    <Compile Include="User\Dto\User_Record_Sql_Dto.cs" />
     <Compile Include="User\IUserAppServices.cs" />
     <Compile Include="User\UserAppServices.cs" />
   </ItemGroup>
@@ -71,6 +71,10 @@
     <ProjectReference Include="..\AgileDev.Entity\AgileDev.Entity.csproj">
       <Project>{44760197-9398-41E6-836B-EA219F53FF84}</Project>
       <Name>AgileDev.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AgileDev.Utility\AgileDev.Utility.csproj">
+      <Project>{EA56393F-5985-4BFE-B179-07B4E6C789C5}</Project>
+      <Name>AgileDev.Utility</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

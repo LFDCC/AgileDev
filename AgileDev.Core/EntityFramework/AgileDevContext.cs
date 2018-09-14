@@ -1,6 +1,6 @@
 ﻿namespace AgileDev.Core.EntityFramework
 {
-    using AgileDev.Entity;
+    using AgileDev.Core.Entities;
     using System.Data.Entity;
 
     public partial class AgileDevContext : DbContext

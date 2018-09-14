@@ -1,4 +1,4 @@
-namespace AgileDev.Entity
+namespace AgileDev.Core.Entities
 {
     using System;
     using System.ComponentModel.DataAnnotations;
