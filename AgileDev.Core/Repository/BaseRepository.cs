@@ -1,4 +1,5 @@
 ﻿using AgileDev.Core.EntityFramework;
+using AgileDev.Core.IRepository;
 using System;
 using System.Data.Entity;
 using System.Linq;
@@ -6,13 +7,13 @@ using System.Linq.Expressions;
 using System.Threading.Tasks;
 using Z.EntityFramework.Plus;
 
-namespace AgileDev.Core.Base
+namespace AgileDev.Core.Repository
 {
     /// <summary>
     /// 增删改(CUD)操作 读操作写在子类中
     /// </summary>
     /// <typeparam name="TEntity"></typeparam>
-    public class BaseServices<TEntity> : IBaseServices<TEntity> where TEntity : class
+    public class BaseRepository<TEntity> : IBaseRepository<TEntity> where TEntity : class
     {
         protected AgileDevContext dbContext = new AgileDevContext();
 

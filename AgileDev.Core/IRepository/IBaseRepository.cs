@@ -1,13 +1,10 @@
-﻿using AgileDev.Utility.Application;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 
-namespace AgileDev.Core.Base
+namespace AgileDev.Core.IRepository
 {
-    public interface IBaseServices<TEntity> : IDisposable where TEntity : class
+    public interface IBaseRepository<TEntity> : IDisposable where TEntity : class
     {
         /// <summary>
         /// 增加
@@ -52,7 +49,6 @@ namespace AgileDev.Core.Base
         /// <param name="sql"></param>
         /// <param name="parameters"></param>
         Task<int> ExecuteSqlCommandAsync(string sql, params object[] parameters);
-        
         /// <summary>
         /// 提交
         /// </summary>
