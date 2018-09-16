@@ -1,5 +1,5 @@
 ﻿using AgileDev.Core.Base;
-using AgileDev.Entity;
+using AgileDev.Core.Entities;
 
 namespace AgileDev.Core.User
 {
