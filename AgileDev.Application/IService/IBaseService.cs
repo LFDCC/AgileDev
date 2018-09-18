@@ -2,9 +2,9 @@
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 
-namespace AgileDev.Core.IRepository
+namespace AgileDev.Application.IService
 {
-    public interface IBaseRepository<TEntity> : IDisposable where TEntity : class
+    public interface IBaseService<TEntity> : IDisposable where TEntity : class
     {
         /// <summary>
         /// 增加
@@ -36,20 +36,19 @@ namespace AgileDev.Core.IRepository
         /// <returns></returns>
         void Update(TEntity t);
         /// <summary>
-        /// 修改扩展方法
-        /// </summary>
-        /// <param name="whereExpression"></param>
-        /// <param name="updateExpression"></param>
-        /// <returns></returns>
-        int Update(Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TEntity>> updateExpression);
-        /// <summary>
-        /// 修改扩展异步方法
+        /// 修改
         /// </summary>
         /// <typeparam name="TEntity"></typeparam>
         /// <param name="whereExpression">条件</param>
         /// <param name="updateExpression">表达式</param>
         /// <returns></returns>
         Task<int> UpdateAsync(Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TEntity>> updateExpression);
+        /// <summary>
+        /// 执行sql返回受影响行数
+        /// </summary>
+        /// <param name="sql"></param>
+        /// <param name="parameters"></param>
+        Task<int> ExecuteSqlCommandAsync(string sql, params object[] parameters);
         /// <summary>
         /// 提交
         /// </summary>

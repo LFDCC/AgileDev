@@ -1,5 +1,5 @@
-﻿using AgileDev.Core.EntityFramework;
-using AgileDev.Core.IRepository;
+﻿using AgileDev.Application.IService;
+using AgileDev.Core.EntityFramework;
 using System;
 using System.Data.Entity;
 using System.Linq;
@@ -7,13 +7,13 @@ using System.Linq.Expressions;
 using System.Threading.Tasks;
 using Z.EntityFramework.Plus;
 
-namespace AgileDev.Core.Repository
+namespace AgileDev.Application.Service
 {
     /// <summary>
-    /// 增删改(CUD)操作
+    /// 增删改(CUD)操作 读操作写在子类中
     /// </summary>
     /// <typeparam name="TEntity"></typeparam>
-    public class BaseRepository<TEntity> : IBaseRepository<TEntity> where TEntity : class
+    public class BaseService<TEntity> : IBaseService<TEntity> where TEntity : class
     {
         protected AgileDevContext dbContext = new AgileDevContext();
 
@@ -61,6 +61,7 @@ namespace AgileDev.Core.Repository
         {
             dbContext.Entry(t).State = EntityState.Modified;
         }
+
         /// <summary>
         /// 修改
         /// </summary>
@@ -68,21 +69,21 @@ namespace AgileDev.Core.Repository
         /// <param name="whereExpression">条件</param>
         /// <param name="updateExpression">表达式</param>
         /// <returns></returns>
-        public int Update(Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TEntity>> updateExpression)
+        public async Task<int> UpdateAsync(Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TEntity>> updateExpression)
         {
-            var result = dbContext.Set<TEntity>().Where(whereExpression).Update(updateExpression);
+            int result =await dbContext.Set<TEntity>().Where(whereExpression).UpdateAsync(updateExpression);
             return result;
         }
+
+     
         /// <summary>
-        /// 修改
+        /// 执行sql返回受影响行数
         /// </summary>
-        /// <typeparam name="TEntity"></typeparam>
-        /// <param name="whereExpression">条件</param>
-        /// <param name="updateExpression">表达式</param>
-        /// <returns></returns>
-        public Task<int> UpdateAsync(Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TEntity>> updateExpression)
+        /// <param name="sql"></param>
+        /// <param name="parameters"></param>
+        public async Task<int> ExecuteSqlCommandAsync(string sql, params object[] parameters)
         {
-            var result =dbContext.Set<TEntity>().Where(whereExpression).UpdateAsync(updateExpression);
+            int result = await dbContext.Database.ExecuteSqlCommandAsync(sql, parameters);
             return result;
         }
         /// <summary>
@@ -97,10 +98,9 @@ namespace AgileDev.Core.Repository
         /// 异步提交
         /// </summary>
         /// <returns></returns>
-        public Task<int> SaveAsync()
+        public async Task<int> SaveAsync()
         {
-            var result= dbContext.SaveChangesAsync();
-            return result;
+            return await dbContext.SaveChangesAsync();
         }
 
         public void Dispose()

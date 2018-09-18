@@ -63,6 +63,10 @@
       <Project>{89d785ed-fe4a-49d8-951d-70f1fe25ef38}</Project>
       <Name>AgileDev.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\AgileDev.Dto\AgileDev.Dto.csproj">
+      <Project>{D7D90FD8-3B8F-48A1-AC21-D5C7642503E2}</Project>
+      <Name>AgileDev.Dto</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AgileDev.Entity\AgileDev.Entity.csproj">
       <Project>{44760197-9398-41E6-836B-EA219F53FF84}</Project>
       <Name>AgileDev.Entity</Name>
